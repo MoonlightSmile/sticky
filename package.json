@@ -1,7 +1,15 @@
 {
-  "name": "sticky",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-autoSticky",
+  "version": "0.2.0",
+  "keywords": [
+    "vue-sticky",
+    "sticky",
+    "vue-component",
+    "sticky-component"
+  ],
+  "description": "a vue-sticky plugin",
+  "main": "./v-stick.js",
+  "author": "Moonlight",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -15,6 +23,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
     "@vue/eslint-config-standard": "^3.0.1",
+    "gh-pages": "^1.2.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.17"
