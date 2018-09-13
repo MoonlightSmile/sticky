@@ -12,18 +12,14 @@ class Sticky {
     this.animationDelay = animationDelay || 0.6
     this.isAutoHide = isAutoHide || false
     this.offset = offset || 300
-    this.currentTop = 0
     console.log(this)
     this.init()
   }
   init () {
-    // this.ele.style.position = '-webkit-sticky'
-    // this.ele.style.position = 'sticky'
-    this.ele.style.zIndex = 1
+    this.ele.style.position = '-webkit-sticky'
+    this.ele.style.position = 'sticky'
+    this.ele.style.zIndex = 100
     this.ele.style.top = `${this.top}px`
-    window.addEventListener('load', e => {
-      console.log(this.stickyTop = this.ele.offsetTop)
-    })
     if (this.isAutoHide) {
       this.ele.style.transition = `transform ${this.animationDelay}s`
       this.bindEvent()
@@ -32,31 +28,21 @@ class Sticky {
     }
   }
   bindEvent () {
-    console.log('bind')
     scroll = this.scrollHander.bind(this)
     window.addEventListener('scroll', scroll)
   }
   removeEvent () {
-    console.log('remove')
     window.removeEventListener('scroll', scroll)
   }
   scrollHander (el) {
-    let scrollTop = window.pageYOffset || // 用于FF
+    let scrollTop = window.pageYOffset ||
     document.documentElement.scrollTop ||
     document.body.scrollTop ||
     0
-    console.log('el', scrollTop)
-    if (scrollTop >= this.stickyTop) {
-      this.ele.style.position = 'fixed'
-      this.ele.style.width = '100%'
-    } else {
-      this.ele.style.position = ''
-    }
     if (scrollTop < this.offset || Math.abs(scrollTop - this.currentTop) < 15) {
       return
     }
-    let hide = scrollTop > this.currentTop
-    if (hide) {
+    if (scrollTop > this.currentTop) {
       this.ele.style.transform = 'translate3d(0, -100%, 0)'
     } else {
       this.ele.style.transform = 'translate3d(0, 0, 0)'

@@ -8,7 +8,7 @@
       <p>你可以放些轮播啊，通知啊啥的</p>
       <p>你可以放些轮播啊，通知啊啥的</p>
     </div>
-    <button @click="aaa">aaaaa</button>
+    <button @click="closeAutoHide">{{ options.isAutoHide ? '关闭自动隐藏' : '开启自动隐藏' }}</button>
     <header v-sticky="options">Moonlight</header>
     <main>
       <ul>
@@ -267,8 +267,7 @@ export default {
     }
   },
   methods: {
-    aaa () {
-      console.log('1')
+    closeAutoHide () {
       this.options.isAutoHide = !this.options.isAutoHide
     }
   }
